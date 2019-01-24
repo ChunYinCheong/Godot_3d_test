@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Weapons/Gun.gd" type="Script" id=1]
+[ext_resource path="res://Weapons/Bullet.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+size = Vector3( 0.1, 0.5, 0.3 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[sub_resource type="CylinderMesh" id=2]
+
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.5
+radial_segments = 16
+rings = 4
+
+[sub_resource type="CubeMesh" id=3]
+
+size = Vector3( 0.1, 0.3, 0.8 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[node name="Gun" type="Spatial"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+bullet_type = ExtResource( 2 )
+fire_rate = 10
+aiming_movement_speed = 20
+firing_movement_speed = 10
+aiming_turn_speed = 0.2
+firing_turn_speed = 0.05
+
+[node name="BulletPosition3D" type="Position3D" parent="." index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance2" type="MeshInstance" parent="." index="1"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.263422, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="2"]
+
+transform = Transform( 1.00666, 0, 4.40022e-08, 4.40026e-08, 1.9234e-15, -1.00665, 0, 1.00665, 1.9234e-15, 0, 0, -0.2 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Geometry", "Transform" ]
+
+[node name="MeshInstance3" type="MeshInstance" parent="." index="3"]
+
+transform = Transform( 1, 0, 0, 0, 0.939836, -0.341627, 0, 0.341627, 0.939836, 0, -0.179868, 0.749673 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 3 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+
